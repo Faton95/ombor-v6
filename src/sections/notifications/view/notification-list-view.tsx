@@ -7,15 +7,11 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
-import Stack from '@mui/material/Stack';
-import Tooltip from '@mui/material/Tooltip';
 import TableBody from '@mui/material/TableBody';
 import { useTheme } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
 
 import { paths } from 'src/routes/paths';
 
-import { useBoolean } from 'src/hooks/use-boolean';
 import { useSetState } from 'src/hooks/use-set-state';
 
 import { fIsAfter } from 'src/utils/format-time';
@@ -26,7 +22,6 @@ import { useGetExpenses } from 'src/actions/expense';
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Label } from 'src/components/label';
-import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 import {
@@ -35,7 +30,6 @@ import {
   TableNoData,
   TableEmptyRows,
   TableHeadCustom,
-  TableSelectedAction,
 } from 'src/components/table';
 
 import { ExitTableRow } from '../notification-table-row';
@@ -117,14 +111,14 @@ const FAKE_DATA = [
 const TABLE_HEAD = [
   { id: 'N', label: '№' },
   { id: 'product_id', label: 'ID', align: 'center' },
-  { id: 'create_date', label: 'Jonatilgan sana', align: 'center' },
+  { id: 'create_date', label: 'Jo‘natilgan sana', align: 'center' },
   { id: 'category', label: 'Kategoriya' },
   { id: 'product_name', label: 'Mahsulot nomi', align: 'center' },
   { id: 'amount', label: 'Bron qilish miqdori', align: 'center' },
   { id: 'unit', label: 'Birligi' },
   { id: 'unit_price', label: 'Bir birlik narxi', align: 'center' },
   { id: 'comment', label: 'Izoh' },
-  { id: 'sender', label: 'Kim tomonidan jonatilgan' },
+  { id: 'sender', label: 'Kim tomonidan jo‘natilgan' },
   { id: '' },
 ];
 
@@ -138,8 +132,6 @@ export function NotificationListView() {
   const theme = useTheme();
 
   const table = useTable({ defaultOrderBy: 'createDate' });
-
-  const confirm = useBoolean();
 
   const filters = useSetState<IInvoiceTableFilters>({
     name: '',
@@ -236,45 +228,6 @@ export function NotificationListView() {
         <ExitTableToolbar filters={filters} dateError={dateError} onResetPage={table.onResetPage} />
 
         <Box sx={{ position: 'relative' }}>
-          <TableSelectedAction
-            dense={false}
-            numSelected={table.selected.length}
-            rowCount={_invoices.length}
-            onSelectAllRows={(checked) => {
-              table.onSelectAllRows(
-                checked,
-                _invoices.map((row) => row.id)
-              );
-            }}
-            action={
-              <Stack direction="row">
-                <Tooltip title="Sent">
-                  <IconButton color="primary">
-                    <Iconify icon="iconamoon:send-fill" />
-                  </IconButton>
-                </Tooltip>
-
-                <Tooltip title="Download">
-                  <IconButton color="primary">
-                    <Iconify icon="eva:download-outline" />
-                  </IconButton>
-                </Tooltip>
-
-                <Tooltip title="Print">
-                  <IconButton color="primary">
-                    <Iconify icon="solar:printer-minimalistic-bold" />
-                  </IconButton>
-                </Tooltip>
-
-                <Tooltip title="Delete">
-                  <IconButton color="primary" onClick={confirm.onTrue}>
-                    <Iconify icon="solar:trash-bin-trash-bold" />
-                  </IconButton>
-                </Tooltip>
-              </Stack>
-            }
-          />
-
           <Scrollbar sx={{ minHeight: 444 }}>
             <Table size={table.dense ? 'small' : 'medium'} sx={{ minWidth: 800 }}>
               <TableHeadCustom
@@ -287,13 +240,7 @@ export function NotificationListView() {
 
               <TableBody>
                 {FAKE_DATA.map((row: any) => (
-                  <ExitTableRow
-                    key={row.id}
-                    row={row}
-                    selected={table.selected.includes(row.id)}
-                    // onViewRow={() => handleViewRow(row.id)}
-                    // onEditRow={() => handleEditRow(row.id)}
-                  />
+                  <ExitTableRow key={row.id} row={row} selected={table.selected.includes(row.id)} />
                 ))}
 
                 <TableEmptyRows

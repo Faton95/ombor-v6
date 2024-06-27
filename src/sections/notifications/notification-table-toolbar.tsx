@@ -53,7 +53,7 @@ export function ExitTableToolbar({ filters, dateError, onResetPage }: Props) {
           ))}
         </Field.Select>
         <Field.Select name="status" label="Ism">
-          {['Azizov Aziz Azizzovich', 'Azizov', 'Azizzovich'].map((option) => (
+          {['Azizov Aziz', 'Lucian Obrien', 'Jaydon Frankie'].map((option) => (
             <MenuItem key={option} value={option} sx={{ textTransform: 'capitalize' }}>
               {option}
             </MenuItem>
