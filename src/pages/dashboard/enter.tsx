@@ -6,12 +6,10 @@ export default function Page() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Four</title>
+        <title> Кирим </title>
       </Helmet>
 
-      <div>
-        Enter
-      </div>
+      <div>Enter</div>
     </>
   );
 }

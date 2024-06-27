@@ -99,31 +99,31 @@ export function InvoiceListView() {
   const TABS = [
     {
       value: 'all',
-      label: 'Umumiy',
+      label: 'Умумий',
       color: 'default',
       count: _invoices.length,
     },
     {
       value: 'paid',
-      label: 'Tasdiqlangan',
+      label: 'Тасдиқланган',
       color: 'success',
       count: getInvoiceLength('paid'),
     },
     {
       value: 'pending',
-      label: 'Yangi',
+      label: 'Янги',
       color: 'warning',
       count: getInvoiceLength('pending'),
     },
     {
       value: 'overdue',
-      label: 'Qaytarish',
+      label: 'Қайтариш',
       color: 'error',
       count: getInvoiceLength('overdue'),
     },
     {
       value: 'draft',
-      label: 'Tasdiqlanmagan',
+      label: 'Тасдиқланмаган',
       color: 'default',
       count: getInvoiceLength('draft'),
     },
@@ -154,8 +154,8 @@ export function InvoiceListView() {
   return (
     <DashboardContent maxWidth="xl">
       <CustomBreadcrumbs
-        heading="Chiqim"
-        links={[{ name: 'Asosiy', href: paths.dashboard.root }, { name: 'Chiqim' }]}
+        heading="Чиқим"
+        links={[{ name: 'Асосий', href: paths.dashboard.root }, { name: 'Чиқим' }]}
         action={
           <Button
             component={RouterLink}
@@ -163,7 +163,7 @@ export function InvoiceListView() {
             variant="contained"
             startIcon={<Iconify icon="mingcute:add-line" />}
           >
-            Yangi yaratish
+            Янги яратиш
           </Button>
         }
         sx={{ mb: { xs: 3, md: 5 } }}
@@ -177,7 +177,7 @@ export function InvoiceListView() {
             sx={{ py: 2 }}
           >
             <ExitAnalytic
-              title="Umumiy"
+              title="Умумий"
               total={_invoices.length}
               percent={100}
               price={sumBy(_invoices, (invoice) => invoice.totalAmount)}
@@ -186,7 +186,7 @@ export function InvoiceListView() {
             />
 
             <ExitAnalytic
-              title="Tasdiqlangan"
+              title="Тасдиқланган"
               total={getInvoiceLength('paid')}
               percent={getPercentByStatus('paid')}
               price={getTotalAmount('paid')}
@@ -195,7 +195,7 @@ export function InvoiceListView() {
             />
 
             <ExitAnalytic
-              title="Yangi"
+              title="Янги"
               total={getInvoiceLength('pending')}
               percent={getPercentByStatus('pending')}
               price={getTotalAmount('pending')}
@@ -204,7 +204,7 @@ export function InvoiceListView() {
             />
 
             <ExitAnalytic
-              title="Qaytarish"
+              title="Қайтариш"
               total={getInvoiceLength('overdue')}
               percent={getPercentByStatus('overdue')}
               price={getTotalAmount('overdue')}
@@ -213,7 +213,7 @@ export function InvoiceListView() {
             />
 
             <ExitAnalytic
-              title="Tasdiqlanmagan"
+              title="Тасдиқланмаган"
               total={getInvoiceLength('draft')}
               percent={getPercentByStatus('draft')}
               price={getTotalAmount('draft')}

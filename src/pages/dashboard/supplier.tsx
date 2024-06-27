@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Six</title>
+        <title> Етказиб бериш </title>
       </Helmet>
 
       <SupplierView />

@@ -24,17 +24,17 @@ export default function ProductsView() {
     <Container maxWidth={false}>
       <CustomBreadcrumbs
         sx={{ mb: 3 }}
-        heading="Mahsulotlar"
+        heading="Маҳсулотлар"
         action={
           <Button
             variant="contained"
             onClick={quickEdit.onTrue}
             startIcon={<Iconify icon="mdi:user-add" />}
           >
-            Yangi yaratish
+            Янги яратиш
           </Button>
         }
-        links={[{ name: 'Yordamchilar', href: '#' }, { name: 'Mahsulotlar' }]}
+        links={[{ name: 'Ёрдамчилар', href: '#' }, { name: 'Маҳсулотлар' }]}
       />
 
       <Card>
@@ -45,9 +45,9 @@ export default function ProductsView() {
               tableData={productResults}
               headLabel={[
                 { id: 'N', label: '№', width: 10 },
-                { id: 'product', label: 'Mahsulotlar', width: 470 },
-                { id: 'category', label: 'Kategoriyasi', width: 470 },
-                { id: 'measurements', label: 'O\'lchov birligi', width: 470 },
+                { id: 'product', label: 'Маҳсулотлар', width: 470 },
+                { id: 'category', label: 'Категорияси', width: 470 },
+                { id: 'measurements', label: 'Ўлчов бирлиги', width: 470 },
                 { id: '', width: 10 },
               ]}
             />

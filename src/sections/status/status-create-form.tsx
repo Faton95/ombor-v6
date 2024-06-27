@@ -17,7 +17,7 @@ import { Form, Field } from 'src/components/hook-form';
 // ----------------------------------------------------------------------
 
 export const NewUser = zod.object({
-  name: zod.string().min(1, { message: "Iltimos textfieldni to'ldiring!" }),
+  name: zod.string().min(1, { message: 'Илтимос файл матнини тўлдиринг!' }),
 });
 
 type NewUserSchema = zod.infer<typeof NewUser>;
@@ -48,7 +48,7 @@ export default function UserCreateForm({ open, onClose }: Props) {
     try {
       await createStatus(data);
       reset();
-      toast.success('Sabab muvaffaqiyatli yaratildi!');
+      toast.success('Сабаб муваффақиятли яратилди!');
       onClose();
     } catch (error) {
       console.error(error);
@@ -65,17 +65,17 @@ export default function UserCreateForm({ open, onClose }: Props) {
       }}
     >
       <Form methods={methods} onSubmit={onSubmit}>
-        <DialogTitle>Yangi sabab yaratish</DialogTitle>
+        <DialogTitle>Янги сабаб яратиш</DialogTitle>
 
         <DialogContent>
           <Box rowGap={3} columnGap={2} display="grid" sx={{ pt: 1 }}>
-            <Field.Text name="name" label="Sabab" />
+            <Field.Text name="name" label="Сабаб" />
           </Box>
         </DialogContent>
 
         <DialogActions>
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Yaratish
+            Яратиш
           </LoadingButton>
           <Button
             variant="outlined"
@@ -84,7 +84,7 @@ export default function UserCreateForm({ open, onClose }: Props) {
               reset();
             }}
           >
-            Bekor qilish
+            Бекор қилиш
           </Button>
         </DialogActions>
       </Form>

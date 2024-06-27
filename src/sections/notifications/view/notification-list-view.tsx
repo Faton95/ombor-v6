@@ -110,15 +110,15 @@ const FAKE_DATA = [
 ];
 const TABLE_HEAD = [
   { id: 'N', label: '№' },
-  { id: 'product_id', label: 'ID', align: 'center' },
-  { id: 'create_date', label: 'Jo‘natilgan sana', align: 'center' },
-  { id: 'category', label: 'Kategoriya' },
-  { id: 'product_name', label: 'Mahsulot nomi', align: 'center' },
-  { id: 'amount', label: 'Bron qilish miqdori', align: 'center' },
-  { id: 'unit', label: 'Birligi' },
-  { id: 'unit_price', label: 'Bir birlik narxi', align: 'center' },
-  { id: 'comment', label: 'Izoh' },
-  { id: 'sender', label: 'Kim tomonidan jo‘natilgan' },
+  { id: 'product_id', label: 'ИД', align: 'center' },
+  { id: 'create_date', label: 'Жўнатилган сана', align: 'center' },
+  { id: 'category', label: 'Категория' },
+  { id: 'product_name', label: 'Маҳсулот номи', align: 'center' },
+  { id: 'amount', label: 'Брон қилиш миқдори', align: 'center' },
+  { id: 'unit', label: 'Бирлиги' },
+  { id: 'unit_price', label: 'Бир бирлик нархи', align: 'center' },
+  { id: 'comment', label: 'Изоҳ' },
+  { id: 'sender', label: 'Ким томонидан жўнатилган' },
   { id: '' },
 ];
 
@@ -149,32 +149,20 @@ export function NotificationListView() {
   const TABS = [
     {
       value: 'all',
-      label: 'Umumiy',
+      label: 'Янги',
       color: 'default',
       count: _invoices.length,
     },
     {
-      value: 'paid',
-      label: 'Tasdiqlangan',
-      color: 'success',
-      count: getInvoiceLength('paid'),
-    },
-    {
-      value: 'pending',
-      label: 'Yangi',
-      color: 'warning',
-      count: getInvoiceLength('pending'),
-    },
-    {
       value: 'overdue',
-      label: 'Qaytarish',
-      color: 'error',
+      label: 'Қабул қилинган',
+      color: 'success',
       count: getInvoiceLength('overdue'),
     },
     {
       value: 'draft',
-      label: 'Tasdiqlanmagan',
-      color: 'default',
+      label: 'Қабул қилинмаган',
+      color: 'error',
       count: getInvoiceLength('draft'),
     },
   ] as const;
@@ -190,8 +178,8 @@ export function NotificationListView() {
   return (
     <DashboardContent maxWidth="xl">
       <CustomBreadcrumbs
-        heading="Xabarnoma"
-        links={[{ name: 'Dashboard', href: paths.dashboard.root }, { name: 'Xabarnoma' }]}
+        heading="Хабарнома"
+        links={[{ name: 'Дашбоард', href: paths.dashboard.root }, { name: 'Хабарнома' }]}
         sx={{ mb: { xs: 3, md: 5 } }}
       />
 

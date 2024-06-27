@@ -115,7 +115,7 @@ export function ExitTableRow({ row, selected, onViewRow, onEditRow }: Props) {
             }}
           >
             <Iconify icon="solar:eye-bold" />
-            View
+            Кўриш
           </MenuItem>
 
           <MenuItem
@@ -125,7 +125,7 @@ export function ExitTableRow({ row, selected, onViewRow, onEditRow }: Props) {
             }}
           >
             <Iconify icon="solar:pen-bold" />
-            Edit
+            Таҳрирлаш
           </MenuItem>
         </MenuList>
       </CustomPopover>

@@ -27,12 +27,12 @@ const CommentDialog: React.FC<CommentDialogProps> = ({ open, onClose, onConfirm 
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Izoh</DialogTitle>
+      <DialogTitle>Изоҳ</DialogTitle>
       <DialogContent sx={{ minHeight: '150px', minWidth: '400px' }}>
         <TextField
           autoFocus
           margin="dense"
-          label="Izoh"
+          label="Изоҳ"
           type="text"
           fullWidth
           multiline
@@ -44,10 +44,10 @@ const CommentDialog: React.FC<CommentDialogProps> = ({ open, onClose, onConfirm 
       </DialogContent>
       <DialogActions>
         <Button variant="outlined" onClick={onClose} color="error">
-          Bekor qilish
+          Бекор қилиш
         </Button>
         <Button variant="contained" onClick={handleConfirm} color="primary">
-          Tasdiqlash
+          Тасдиқлаш
         </Button>
       </DialogActions>
     </Dialog>

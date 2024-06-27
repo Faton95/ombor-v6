@@ -159,7 +159,7 @@ export function InvoiceNewEditForm({ currentInvoice }: Props) {
           loading={loadingSave.value && isSubmitting}
           onClick={handleSaveAsDraft}
         >
-          Qoralama sifatida saqlash
+          Қоралама сифатида сақлаш
         </LoadingButton>
 
         <LoadingButton
@@ -168,7 +168,7 @@ export function InvoiceNewEditForm({ currentInvoice }: Props) {
           loading={loadingSend.value && isSubmitting}
           onClick={handleCreateAndSend}
         >
-          {currentInvoice ? 'Yangilash' : 'Yaratish'} & Yuborish
+          {currentInvoice ? 'Янгилаш' : 'Яратиш'} & Юбориш
         </LoadingButton>
       </Stack>
     </Form>

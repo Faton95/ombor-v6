@@ -97,12 +97,12 @@ function RowItem({ row, index }: RowItemProps) {
         <MenuList>
           <MenuItem onClick={handleEdit}>
             <Iconify icon="solar:pen-bold" />
-            Edit
+            Таҳрирлаш
           </MenuItem>
 
           <MenuItem onClick={handleDelete} sx={{ color: 'error.main' }}>
             <Iconify icon="solar:trash-bin-trash-bold" />
-            Delete
+            Ўчириш
           </MenuItem>
         </MenuList>
       </CustomPopover>

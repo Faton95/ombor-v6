@@ -50,7 +50,7 @@ export function InvoiceNewEditAddress() {
         <Stack sx={{ width: 1 }}>
           <Stack direction="row" alignItems="center" sx={{ mb: 1 }}>
             <Typography variant="h6" sx={{ color: 'text.disabled', flexGrow: 1 }}>
-              Qayerdan:
+              Қаердан:
             </Typography>
 
             <IconButton onClick={from.onTrue}>
@@ -68,7 +68,7 @@ export function InvoiceNewEditAddress() {
         <Stack sx={{ width: 1 }}>
           <Stack direction="row" alignItems="center" sx={{ mb: 1 }}>
             <Typography variant="h6" sx={{ color: 'text.disabled', flexGrow: 1 }}>
-              Qayerga:
+              Қаерга:
             </Typography>
 
             <IconButton onClick={to.onTrue}>
@@ -91,7 +91,7 @@ export function InvoiceNewEditAddress() {
       </Stack>
 
       <AddressListDialog
-        title="Qayerdan"
+        title="Қаердан"
         open={from.value}
         onClose={from.onFalse}
         selected={(selectedId: string) => invoiceFrom?.id === selectedId}
@@ -100,7 +100,7 @@ export function InvoiceNewEditAddress() {
       />
 
       <AddressListDialog
-        title="Qayerga"
+        title="Қаерга"
         open={to.value}
         onClose={to.onFalse}
         selected={(selectedId: string) => invoiceTo?.id === selectedId}

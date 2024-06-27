@@ -76,8 +76,8 @@ export default function WarehouseView() {
       <Form methods={methods}>
         <CustomBreadcrumbs
           sx={{ mb: 3 }}
-          heading="Omborxona"
-          links={[{ name: 'Asosiy', href: '#' }, { name: 'Omborxona' }]}
+          heading="Омборхона"
+          links={[{ name: 'Асосий', href: '#' }, { name: 'Омборхона' }]}
         />
 
         <WarehouseFilter />
@@ -86,14 +86,14 @@ export default function WarehouseView() {
           tableData={data}
           headLabel={[
             { id: 'index', label: '№', align: 'left', width: 10 },
-            { id: 'image', label: 'Rasm', width: 40 },
-            { id: 'product_id', label: 'ID', width: 40 },
-            { id: 'warehouse_name', label: 'OMBORXONA NOMI', width: 340 },
-            { id: 'product_name', label: 'Mahsulot nomi', width: 240 },
-            { id: 'amount', label: 'Rank', align: 'center', width: 100 },
-            { id: 'measurement', label: 'Rank', align: 'center', width: 100 },
-            { id: 'price', label: 'Bir xirlik narxi', align: 'center', width: 110 },
-            { id: 'total_price', label: 'Umumiy narxi', align: 'center', width: 110 },
+            { id: 'image', label: 'Расм', width: 40 },
+            { id: 'product_id', label: 'ИД', width: 40 },
+            { id: 'warehouse_name', label: 'Омборхона номи', width: 340 },
+            { id: 'product_name', label: 'Маҳсулот номи', width: 240 },
+            { id: 'amount', label: 'Миқдори', align: 'center', width: 100 },
+            { id: 'measurement', label: 'Бирлиги', align: 'center', width: 100 },
+            { id: 'price', label: 'Бир бирлик нархи', align: 'center', width: 110 },
+            { id: 'total_price', label: 'Умумий нархи', align: 'center', width: 110 },
           ]}
         />
       </Form>

@@ -45,80 +45,80 @@ const ICONS = {
 
 export const navData = [
   {
-    subheader: 'dashboard',
+    subheader: 'ДАШБОАРД',
     items: [
       {
-        title: 'Dashboard',
+        title: 'Дашбоард',
         path: paths.dashboard.root,
         icon: ICONS.dashboard,
       },
       {
-        title: 'Xabarnoma',
+        title: 'Хабарнома',
         path: paths.dashboard.notifications,
         icon: ICONS.ecommerce,
       },
     ],
   },
   {
-    subheader: 'asosiy',
+    subheader: 'АСОСИЙ',
     items: [
       {
-        title: 'Kirim',
+        title: 'Кирим',
         path: paths.dashboard.enter,
         icon: ICONS.analytics,
       },
       {
-        title: 'Omborxona',
+        title: 'Омборхона',
         path: paths.dashboard.warehouse,
         icon: ICONS.banking,
       },
       {
-        title: 'Chiqim',
+        title: 'Чиқим',
         path: paths.dashboard.exit,
         icon: ICONS.booking,
       },
     ],
   },
   {
-    subheader: 'YORDAMCHILAR',
+    subheader: 'ЁРДАМЧИЛАР',
     items: [
       {
-        title: 'Mahsulot nomlari',
+        title: 'Маҳсулот номлари',
         path: paths.dashboard.products,
         icon: ICONS.lock,
       },
       {
-        title: 'Kategoriya',
+        title: 'Категория',
         path: paths.dashboard.categories,
         icon: ICONS.blank,
       },
       {
-        title: "O'lchov birliklar",
+        title: 'Ўлчов бирликлар',
         path: paths.dashboard.units_measurements,
         icon: ICONS.folder,
       },
       {
-        title: 'Sabablar',
+        title: 'Сабаблар',
         path: paths.dashboard.status,
         icon: ICONS.invoice,
       },
       {
-        title: 'Otdellar',
+        title: 'Отделлар',
         path: paths.dashboard.department,
         icon: ICONS.blog,
       },
       {
-        title: 'Mijoz',
+        title: 'Мижоз',
         path: paths.dashboard.customer,
         icon: ICONS.calendar,
       },
       {
-        title: 'Foydalanuvchilar',
+        title: 'Фойдаланувчилар',
         path: paths.dashboard.users,
         icon: ICONS.kanban,
       },
       {
-        title: 'Yetkazib beruvchi',
+        title: 'Етказиб берувчи',
         path: paths.dashboard.supplier,
         icon: ICONS.disabled,
       },

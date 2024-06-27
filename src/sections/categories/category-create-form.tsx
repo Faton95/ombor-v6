@@ -65,17 +65,17 @@ export default function UserCreateForm({ open, onClose }: Props) {
       }}
     >
       <Form methods={methods} onSubmit={onSubmit}>
-        <DialogTitle>Yangi kategoriya yaratish</DialogTitle>
+        <DialogTitle>Янги категория яратиш</DialogTitle>
 
         <DialogContent>
           <Box rowGap={3} columnGap={2} display="grid" sx={{ pt: 1 }}>
-            <Field.Text name="name" label="Kategoriya" />
+            <Field.Text name="name" label="Категория" />
           </Box>
         </DialogContent>
 
         <DialogActions>
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Yaratish
+            Яратиш
           </LoadingButton>
           <Button
             variant="outlined"
@@ -84,7 +84,7 @@ export default function UserCreateForm({ open, onClose }: Props) {
               reset();
             }}
           >
-            Bekor qilish
+            Бекор қилиш
           </Button>
         </DialogActions>
       </Form>

@@ -24,17 +24,17 @@ export default function CategoriesView() {
     <Container maxWidth={false}>
       <CustomBreadcrumbs
         sx={{ mb: 3 }}
-        heading="Mijoz"
+        heading="Мижоз"
         action={
           <Button
             variant="contained"
             onClick={quickEdit.onTrue}
             startIcon={<Iconify icon="mdi:user-add" />}
           >
-            Yangi yaratish
+            Янги яратиш
           </Button>
         }
-        links={[{ name: 'Yordamchilar', href: '#' }, { name: 'Mijoz' }]}
+        links={[{ name: 'Ёрдамчилар', href: '#' }, { name: 'Мижоз' }]}
       />
 
       <Card>
@@ -45,9 +45,9 @@ export default function CategoriesView() {
               tableData={customerResults}
               headLabel={[
                 { id: 'N', label: '№', width: 10 },
-                { id: 'customer', label: 'Mijoz', width: 470 },
-                { id: 'organization', label: 'Tashkilot', width: 470 },
-                { id: 'phone', label: 'Telefon nomeri', width: 460 },
+                { id: 'customer', label: 'Мижоз', width: 470 },
+                { id: 'organization', label: 'Ташкилот', width: 470 },
+                { id: 'phone', label: 'Телефон номери', width: 460 },
                 { id: '', width: 10 },
               ]}
             />

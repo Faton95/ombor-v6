@@ -54,7 +54,7 @@ export function InvoiceDetails({ invoice }: Props) {
         <TableCell colSpan={3} />
         <TableCell sx={{ color: 'text.secondary' }}>
           <Box sx={{ mt: 2 }} />
-          Subtotal
+          Умумий
         </TableCell>
         <TableCell width={120} sx={{ typography: 'subtitle2' }}>
           <Box sx={{ mt: 2 }} />
@@ -64,7 +64,7 @@ export function InvoiceDetails({ invoice }: Props) {
 
       <StyledTableRow>
         <TableCell colSpan={3} />
-        <TableCell sx={{ color: 'text.secondary' }}>Shipping</TableCell>
+        <TableCell sx={{ color: 'text.secondary' }}>Етказиб бериш</TableCell>
         <TableCell width={120} sx={{ color: 'error.main', typography: 'body2' }}>
           - {fCurrency(invoice?.shipping)}
         </TableCell>
@@ -72,7 +72,7 @@ export function InvoiceDetails({ invoice }: Props) {
 
       <StyledTableRow>
         <TableCell colSpan={3} />
-        <TableCell sx={{ color: 'text.secondary' }}>Discount</TableCell>
+        <TableCell sx={{ color: 'text.secondary' }}>Чегирма</TableCell>
         <TableCell width={120} sx={{ color: 'error.main', typography: 'body2' }}>
           - {fCurrency(invoice?.discount)}
         </TableCell>
@@ -80,13 +80,13 @@ export function InvoiceDetails({ invoice }: Props) {
 
       <StyledTableRow>
         <TableCell colSpan={3} />
-        <TableCell sx={{ color: 'text.secondary' }}>Taxes</TableCell>
+        <TableCell sx={{ color: 'text.secondary' }}>Солиқлар</TableCell>
         <TableCell width={120}>{fCurrency(invoice?.taxes)}</TableCell>
       </StyledTableRow>
 
       <StyledTableRow>
         <TableCell colSpan={3} />
-        <TableCell sx={{ typography: 'subtitle1' }}>Total</TableCell>
+        <TableCell sx={{ typography: 'subtitle1' }}>Жами</TableCell>
         <TableCell width={140} sx={{ typography: 'subtitle1' }}>
           {fCurrency(invoice?.totalAmount)}
         </TableCell>
@@ -121,13 +121,13 @@ export function InvoiceDetails({ invoice }: Props) {
           <TableRow>
             <TableCell width={40}>#</TableCell>
 
-            <TableCell sx={{ typography: 'subtitle2' }}>Description</TableCell>
+            <TableCell sx={{ typography: 'subtitle2' }}>Тавсифи</TableCell>
 
-            <TableCell>Qty</TableCell>
+            <TableCell>Миқдори</TableCell>
 
-            <TableCell align="right">Unit price</TableCell>
+            <TableCell align="right">Бир бирлик нархи</TableCell>
 
-            <TableCell align="right">Total</TableCell>
+            <TableCell align="right">Жами</TableCell>
           </TableRow>
         </TableHead>
 
@@ -201,7 +201,7 @@ export function InvoiceDetails({ invoice }: Props) {
 
           <Stack sx={{ typography: 'body2' }}>
             <Typography variant="subtitle2" sx={{ mb: 1 }}>
-              Invoice from
+              Кимдан
             </Typography>
             {invoice?.invoiceFrom.name}
             <br />
@@ -213,7 +213,7 @@ export function InvoiceDetails({ invoice }: Props) {
 
           <Stack sx={{ typography: 'body2' }}>
             <Typography variant="subtitle2" sx={{ mb: 1 }}>
-              Invoice to
+              Кимга
             </Typography>
             {invoice?.invoiceTo.name}
             <br />
@@ -225,14 +225,14 @@ export function InvoiceDetails({ invoice }: Props) {
 
           <Stack sx={{ typography: 'body2' }}>
             <Typography variant="subtitle2" sx={{ mb: 1 }}>
-              Date create
+              Яратилган сана
             </Typography>
             {fDate(invoice?.createDate)}
           </Stack>
 
           <Stack sx={{ typography: 'body2' }}>
             <Typography variant="subtitle2" sx={{ mb: 1 }}>
-              Due date
+              Муддати
             </Typography>
             {fDate(invoice?.dueDate)}
           </Stack>
