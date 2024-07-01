@@ -28,16 +28,22 @@ export function useGetMeasurements() {
   return memoizedValue;
 }
 
-export async function createMeasurements(name: {name: string}) {
+export async function createMeasurements(name: { name: string }) {
   const res = await axios.post('/measure', name);
 
   mutate('/measure');
   return res.data;
 }
 
-
 export async function deleteMeasurements(id: string) {
   const res = await axios.delete(`/measure/${id}`);
+
+  mutate('/measure');
+  return res.data;
+}
+
+export async function editMeasurements(id: string, name: { name: string }) {
+  const res = await axios.put(`/measure/${id}`, name);
 
   mutate('/measure');
   return res.data;

@@ -26,7 +26,7 @@ type Props = CardProps & {
     _id: string;
     name: string;
     category: string;
-    measure: string;
+    measureName: string;
   }[];
 };
 
@@ -80,7 +80,7 @@ function RowItem({ row, index }: RowItemProps) {
         <TableCell>{index}</TableCell>
         <TableCell>{row.name}</TableCell>
         <TableCell>{row.category}</TableCell>
-        <TableCell>{row.measure}</TableCell>
+        <TableCell>{row.measureName}</TableCell>
         <TableCell align="right" sx={{ pr: 1 }}>
           <IconButton color={popover.open ? 'inherit' : 'default'} onClick={popover.onOpen}>
             <Iconify icon="eva:more-vertical-fill" />

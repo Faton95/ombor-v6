@@ -27,7 +27,7 @@ const CommentDialog: React.FC<CommentDialogProps> = ({ open, onClose, onConfirm 
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Изоҳ</DialogTitle>
+      <DialogTitle>Бекор қилиш сабабини киритинг!</DialogTitle>
       <DialogContent sx={{ minHeight: '150px', minWidth: '400px' }}>
         <TextField
           autoFocus

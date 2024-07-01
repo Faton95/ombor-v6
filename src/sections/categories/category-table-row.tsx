@@ -1,4 +1,8 @@
 import type { CardProps } from '@mui/material/Card';
+
+import React, { useState } from 'react';
+
+// eslint-disable-next-line perfectionist/sort-imports
 import type { TableHeadCustomProps } from 'src/components/table';
 
 import Card from '@mui/material/Card';
@@ -10,22 +14,25 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
 
-import { deleteCategory } from 'src/actions/category';
+import { editCategory, deleteCategory } from 'src/actions/category';
 
 import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { TableHeadCustom } from 'src/components/table';
 import { usePopover, CustomPopover } from 'src/components/custom-popover';
-// ----------------------------------------------------------------------
+
+import EditModal from './category-edit-form';
+
+type Category = {
+  _id: string;
+  name: string;
+};
 
 type Props = CardProps & {
   title?: string;
   subheader?: string;
   headLabel: TableHeadCustomProps['headLabel'];
-  tableData: {
-    _id: string;
-    name: string;
-  }[];
+  tableData: Category[];
 };
 
 export default function CategoryTableView({
@@ -40,7 +47,6 @@ export default function CategoryTableView({
       <Scrollbar>
         <Table sx={{ minWidth: 680 }}>
           <TableHeadCustom headLabel={headLabel} />
-
           <TableBody>
             {tableData.map((row, index) => (
               <RowItem key={row._id} index={index + 1} row={row} />
@@ -56,15 +62,27 @@ export default function CategoryTableView({
 
 type RowItemProps = {
   index: number;
-  row: Props['tableData'][number];
+  row: Category;
 };
 
 function RowItem({ row, index }: RowItemProps) {
   const popover = usePopover();
+  const [editOpen, setEditOpen] = useState(false);
+  const [editName, setEditName] = useState(row.name);
 
-  const handleEdit = () => {
+  const handleEditOpen = () => {
+    setEditOpen(true);
     popover.onClose();
-    console.info('Edit', row._id);
+  };
+
+  const handleEditClose = () => {
+    setEditOpen(false);
+  };
+
+  const handleEditSave = (newName: any) => {
+    console.info('Save', row._id, newName);
+    editCategory(row._id, { name: newName });
+    setEditOpen(false);
   };
 
   const handleDelete = () => {
@@ -91,7 +109,7 @@ function RowItem({ row, index }: RowItemProps) {
         slotProps={{ arrow: { placement: 'right-top' } }}
       >
         <MenuList>
-          <MenuItem onClick={handleEdit}>
+          <MenuItem onClick={handleEditOpen}>
             <Iconify icon="solar:pen-bold" />
             Таҳрирлаш
           </MenuItem>
@@ -102,6 +120,14 @@ function RowItem({ row, index }: RowItemProps) {
           </MenuItem>
         </MenuList>
       </CustomPopover>
+
+      <EditModal
+        open={editOpen}
+        name={editName}
+        onClose={handleEditClose}
+        onSave={handleEditSave}
+        onChange={(e) => setEditName(e.target.value)}
+      />
     </>
   );
 }

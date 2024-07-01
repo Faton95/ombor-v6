@@ -39,3 +39,10 @@ export async function deleteDepartment(id: string) {
   mutate('/otdel');
   return res.data;
 }
+
+export async function editDepartment(id: string, name: { name: string }) {
+  const res = await axios.put(`/otdel/${id}`, name);
+
+  mutate('/otdel');
+  return res.data;
+}
