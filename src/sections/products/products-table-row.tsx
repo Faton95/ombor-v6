@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+
+// eslint-disable-next-line perfectionist/sort-imports
 import type { CardProps } from '@mui/material/Card';
 import type { TableHeadCustomProps } from 'src/components/table';
 
@@ -16,6 +19,8 @@ import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { TableHeadCustom } from 'src/components/table';
 import { usePopover, CustomPopover } from 'src/components/custom-popover';
+
+import { EditModal } from './products-edit-form';
 // ----------------------------------------------------------------------
 
 type Props = CardProps & {
@@ -25,8 +30,14 @@ type Props = CardProps & {
   tableData: {
     _id: string;
     name: string;
-    category: string;
-    measureName: string;
+    category: {
+      name: string;
+      _id: string;
+    };
+    measure: {
+      name: string;
+      _id: string;
+    };
   }[];
 };
 
@@ -37,6 +48,19 @@ export default function ProductsTableView({
   headLabel,
   ...other
 }: Props) {
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [currentRow, setCurrentRow] = useState<Props['tableData'][number] | null>(null);
+
+  const handleEditOpen = (row: Props['tableData'][number]) => {
+    setCurrentRow(row);
+    setOpenEditModal(true);
+  };
+
+  const handleEditClose = () => {
+    setCurrentRow(null);
+    setOpenEditModal(false);
+  };
+
   return (
     <Card {...other}>
       <Scrollbar>
@@ -45,11 +69,13 @@ export default function ProductsTableView({
 
           <TableBody>
             {tableData.map((row, index) => (
-              <RowItem key={row._id} index={index + 1} row={row} />
+              <RowItem key={row._id} index={index + 1} row={row} onEdit={handleEditOpen} />
             ))}
           </TableBody>
         </Table>
       </Scrollbar>
+
+      <EditModal open={openEditModal} onClose={handleEditClose} row={currentRow} />
     </Card>
   );
 }
@@ -59,14 +85,15 @@ export default function ProductsTableView({
 type RowItemProps = {
   index: number;
   row: Props['tableData'][number];
+  onEdit: (row: Props['tableData'][number]) => void;
 };
 
-function RowItem({ row, index }: RowItemProps) {
+function RowItem({ row, index, onEdit }: RowItemProps) {
   const popover = usePopover();
 
   const handleEdit = () => {
     popover.onClose();
-    console.info('Edit', row._id);
+    onEdit(row);
   };
 
   const handleDelete = () => {
@@ -79,8 +106,8 @@ function RowItem({ row, index }: RowItemProps) {
       <TableRow>
         <TableCell>{index}</TableCell>
         <TableCell>{row.name}</TableCell>
-        <TableCell>{row.category}</TableCell>
-        <TableCell>{row.measureName}</TableCell>
+        <TableCell>{row.category.name}</TableCell>
+        <TableCell>{row.measure.name}</TableCell>
         <TableCell align="right" sx={{ pr: 1 }}>
           <IconButton color={popover.open ? 'inherit' : 'default'} onClick={popover.onOpen}>
             <Iconify icon="eva:more-vertical-fill" />

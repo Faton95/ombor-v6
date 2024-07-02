@@ -39,3 +39,15 @@ export async function deleteProduct(id: string) {
   mutate('/product');
   return res.data;
 }
+
+type DataProducts = {
+  category?: string;
+  name?: string;
+  measure?: string;
+};
+export async function editProducts(dataProducts: DataProducts, id?: string) {
+  const res = await axios.put(`/product/${id}`, dataProducts);
+
+  mutate('/product');
+  return res.data;
+}

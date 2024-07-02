@@ -26,16 +26,27 @@ export function useGetCustomer() {
   return memoizedValue;
 }
 
-export async function createCustomer(name: {name: string}) {
+export async function createCustomer(name: { name: string }) {
   const res = await axios.post('/customer', name);
 
   mutate('/customer');
   return res.data;
 }
 
-
 export async function deleteCustomer(id: string) {
   const res = await axios.delete(`/customer/${id}`);
+
+  mutate('/customer');
+  return res.data;
+}
+
+type DataCustomer = {
+  phone: string;
+  name: string;
+  organization: string;
+};
+export async function editCustomer(dataCustomer: DataCustomer, id?: string) {
+  const res = await axios.put(`/customer/${id}`, dataCustomer);
 
   mutate('/customer');
   return res.data;
