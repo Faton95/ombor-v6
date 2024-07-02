@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Six</title>
+        <title> Фойдаланувчилар </title>
       </Helmet>
 
       <div>Users</div>

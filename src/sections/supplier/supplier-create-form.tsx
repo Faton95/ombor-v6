@@ -17,9 +17,9 @@ import { Form, Field } from 'src/components/hook-form';
 // ----------------------------------------------------------------------
 
 export const NewUser = zod.object({
-  name: zod.string().min(1, { message: "Iltimos textfieldni to'ldiring!" }),
-  phone: zod.string().min(1, { message: "Iltimos textfieldni to'ldiring!" }),
-  address: zod.string().min(1, { message: "Iltimos textfieldni to'ldiring!" }),
+  name: zod.string().min(1, { message: 'Илтимос файл матнини тўлдиринг!' }),
+  phone: zod.string().min(1, { message: 'Илтимос файл матнини тўлдиринг!' }),
+  address: zod.string().min(1, { message: 'Илтимос файл матнини тўлдиринг!' }),
 });
 
 type NewUserSchema = zod.infer<typeof NewUser>;
@@ -52,7 +52,7 @@ export default function UserCreateForm({ open, onClose }: Props) {
     try {
       await createSupplier(data);
       reset();
-      toast.success('Kategoriya muvaffaqiyatli yaratildi!');
+      toast.success('Категория муваффақиятли яратилди!');
       onClose();
     } catch (error) {
       console.error(error);
@@ -69,19 +69,19 @@ export default function UserCreateForm({ open, onClose }: Props) {
       }}
     >
       <Form methods={methods} onSubmit={onSubmit}>
-        <DialogTitle>Yangi yetkazib beruvchi yaratish</DialogTitle>
+        <DialogTitle>Янги етказиб берувчи яратиш</DialogTitle>
 
         <DialogContent>
           <Box rowGap={3} columnGap={2} display="grid" sx={{ pt: 1 }}>
-            <Field.Text name="name" label="Yetkazib beruvchi" />
-            <Field.Text name="address" label="Manzil" />
-            <Field.Text name="phone" label="Telefon raqam" />
+            <Field.Text name="name" label="Етказиб берувчи" />
+            <Field.Text name="address" label="Манзил" />
+            <Field.Text name="phone" label="Телефон рақам" />
           </Box>
         </DialogContent>
 
         <DialogActions>
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Yaratish
+            Яратиш
           </LoadingButton>
           <Button
             variant="outlined"
@@ -90,7 +90,7 @@ export default function UserCreateForm({ open, onClose }: Props) {
               reset();
             }}
           >
-            Bekor qilish
+            Бекор қилиш
           </Button>
         </DialogActions>
       </Form>

@@ -39,3 +39,15 @@ export async function deleteSupplier(id: string) {
   mutate('/suplier');
   return res.data;
 }
+
+type DataSupplier = {
+  phone: string;
+  name: string;
+  address: string;
+};
+export async function editSupplier(dataSupplier: DataSupplier, id?: string) {
+  const res = await axios.put(`/suplier/${id}`, dataSupplier);
+
+  mutate('/suplier');
+  return res.data;
+}

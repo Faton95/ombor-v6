@@ -18,10 +18,10 @@ export function InvoiceEditView({ invoice }: Props) {
   return (
     <DashboardContent maxWidth="xl">
       <CustomBreadcrumbs
-        heading="Edit"
+        heading="Таҳрирлаш"
         links={[
-          { name: 'Dashboard', href: paths.dashboard.root },
-          { name: 'Invoice', href: paths.dashboard.invoice.root },
+          { name: 'Дашбоард', href: paths.dashboard.root },
+          { name: 'Накладной', href: paths.dashboard.invoice.root },
           { name: invoice?.invoiceNumber },
         ]}
         sx={{ mb: { xs: 3, md: 5 } }}

@@ -1,14 +1,10 @@
 import type { IInvoice } from 'src/types/invoice';
 
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 
 import { fCurrency } from 'src/utils/format-number';
@@ -23,41 +19,14 @@ import { usePopover, CustomPopover } from 'src/components/custom-popover';
 type Props = {
   row: IInvoice;
   selected: boolean;
-  onViewRow: () => void;
-  onEditRow: () => void;
 };
 
-export function ExitTableRow({ row, selected, onViewRow, onEditRow }: Props) {
+export function ExitTableRowView({ row, selected }: Props) {
   const popover = usePopover();
 
   return (
     <>
       <TableRow hover selected={selected}>
-        <TableCell>
-          <Stack spacing={2} direction="row" alignItems="center">
-            <Avatar alt={row.invoiceTo.name}>{row.invoiceTo.name.charAt(0).toUpperCase()}</Avatar>
-
-            <ListItemText
-              disableTypography
-              primary={
-                <Typography variant="body2" noWrap>
-                  {row.invoiceTo.name}
-                </Typography>
-              }
-              secondary={
-                <Link
-                  noWrap
-                  variant="body2"
-                  onClick={onViewRow}
-                  sx={{ color: 'text.disabled', cursor: 'pointer' }}
-                >
-                  {row.invoiceNumber}
-                </Link>
-              }
-            />
-          </Stack>
-        </TableCell>
-
         <TableCell>
           <ListItemText
             primary={fDate(row.createDate)}
@@ -110,22 +79,20 @@ export function ExitTableRow({ row, selected, onViewRow, onEditRow }: Props) {
         <MenuList>
           <MenuItem
             onClick={() => {
-              onViewRow();
               popover.onClose();
             }}
           >
             <Iconify icon="solar:eye-bold" />
-            Кўриш
+            View
           </MenuItem>
 
           <MenuItem
             onClick={() => {
-              onEditRow();
               popover.onClose();
             }}
           >
             <Iconify icon="solar:pen-bold" />
-            Таҳрирлаш
+            Edit
           </MenuItem>
         </MenuList>
       </CustomPopover>

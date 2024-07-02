@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import { varAlpha, hideScrollY } from 'src/theme/styles';
 
 import { Logo } from 'src/components/logo';
+import { Gerb } from 'src/components/logo/logo-mini';
 import { Scrollbar } from 'src/components/scrollbar';
 import { NavSectionMini, NavSectionVertical } from 'src/components/nav-section';
 
@@ -55,7 +56,8 @@ export function NavVertical({
     <>
       {slots?.topArea ?? (
         <Box sx={{ display: 'flex', justifyContent: 'center', py: 2.5 }}>
-          <Logo />
+          {/* logo mini */}
+          <Gerb />
         </Box>
       )}
 

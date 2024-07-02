@@ -52,7 +52,7 @@ export function InvoiceToolbar({ invoice, currentStatus, statusOptions, onChange
         style={{ textDecoration: 'none' }}
       >
         {({ loading }) => (
-          <Tooltip title="Download">
+          <Tooltip title="Юклаб олиш">
             <IconButton>
               {loading ? (
                 <CircularProgress size={24} color="inherit" />
@@ -75,13 +75,13 @@ export function InvoiceToolbar({ invoice, currentStatus, statusOptions, onChange
         sx={{ mb: { xs: 3, md: 5 } }}
       >
         <Stack direction="row" spacing={1} flexGrow={1} sx={{ width: 1 }}>
-          <Tooltip title="Edit">
+          <Tooltip title="Таҳрирлаш">
             <IconButton onClick={handleEdit}>
               <Iconify icon="solar:pen-bold" />
             </IconButton>
           </Tooltip>
 
-          <Tooltip title="View">
+          <Tooltip title="Кўриш">
             <IconButton onClick={view.onTrue}>
               <Iconify icon="solar:eye-bold" />
             </IconButton>
@@ -89,19 +89,19 @@ export function InvoiceToolbar({ invoice, currentStatus, statusOptions, onChange
 
           {renderDownload}
 
-          <Tooltip title="Print">
+          <Tooltip title="Чоп этиш">
             <IconButton>
               <Iconify icon="solar:printer-minimalistic-bold" />
             </IconButton>
           </Tooltip>
 
-          <Tooltip title="Send">
+          <Tooltip title="Юбориш">
             <IconButton>
               <Iconify icon="iconamoon:send-fill" />
             </IconButton>
           </Tooltip>
 
-          <Tooltip title="Share">
+          <Tooltip title="Улашиш">
             <IconButton>
               <Iconify icon="solar:share-bold" />
             </IconButton>
@@ -111,7 +111,7 @@ export function InvoiceToolbar({ invoice, currentStatus, statusOptions, onChange
         <TextField
           fullWidth
           select
-          label="Status"
+          label="Ҳолат"
           value={currentStatus}
           onChange={onChangeStatus}
           inputProps={{ id: `status-select-label` }}

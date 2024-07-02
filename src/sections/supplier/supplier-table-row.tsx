@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+
+// eslint-disable-next-line perfectionist/sort-imports
 import type { CardProps } from '@mui/material/Card';
 import type { TableHeadCustomProps } from 'src/components/table';
 
@@ -16,6 +19,8 @@ import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { TableHeadCustom } from 'src/components/table';
 import { usePopover, CustomPopover } from 'src/components/custom-popover';
+
+import { EditModal } from './supplier-edit-form';
 // ----------------------------------------------------------------------
 
 type Props = CardProps & {
@@ -37,6 +42,18 @@ export default function CategoryTableView({
   headLabel,
   ...other
 }: Props) {
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [currentRow, setCurrentRow] = useState<Props['tableData'][number] | null>(null);
+
+  const handleEditOpen = (row: Props['tableData'][number]) => {
+    setCurrentRow(row);
+    setOpenEditModal(true);
+  };
+
+  const handleEditClose = () => {
+    setCurrentRow(null);
+    setOpenEditModal(false);
+  };
   return (
     <Card {...other}>
       <Scrollbar>
@@ -45,11 +62,13 @@ export default function CategoryTableView({
 
           <TableBody>
             {tableData.map((row, index) => (
-              <RowItem key={row._id} index={index + 1} row={row} />
+              <RowItem key={row._id} index={index + 1} row={row} onEdit={handleEditOpen} />
             ))}
           </TableBody>
         </Table>
       </Scrollbar>
+
+      <EditModal open={openEditModal} onClose={handleEditClose} row={currentRow} />
     </Card>
   );
 }
@@ -59,14 +78,15 @@ export default function CategoryTableView({
 type RowItemProps = {
   index: number;
   row: Props['tableData'][number];
+  onEdit: (row: Props['tableData'][number]) => void;
 };
 
-function RowItem({ row, index }: RowItemProps) {
+function RowItem({ row, index, onEdit }: RowItemProps) {
   const popover = usePopover();
 
   const handleEdit = () => {
     popover.onClose();
-    console.info('Edit', row._id);
+    onEdit(row);
   };
 
   const handleDelete = () => {
@@ -97,12 +117,12 @@ function RowItem({ row, index }: RowItemProps) {
         <MenuList>
           <MenuItem onClick={handleEdit}>
             <Iconify icon="solar:pen-bold" />
-            Edit
+            Таҳрирлаш
           </MenuItem>
 
           <MenuItem onClick={handleDelete} sx={{ color: 'error.main' }}>
             <Iconify icon="solar:trash-bin-trash-bold" />
-            Delete
+            Ўчириш
           </MenuItem>
         </MenuList>
       </CustomPopover>

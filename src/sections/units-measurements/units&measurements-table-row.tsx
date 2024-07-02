@@ -1,6 +1,8 @@
 import type { CardProps } from '@mui/material/Card';
 import type { TableHeadCustomProps } from 'src/components/table';
 
+import React, { useState } from 'react';
+
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import MenuList from '@mui/material/MenuList';
@@ -10,12 +12,14 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
 
-import { deleteMeasurements } from 'src/actions/units-measurements';
+import { editMeasurements, deleteMeasurements } from 'src/actions/units-measurements';
 
 import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { TableHeadCustom } from 'src/components/table';
 import { usePopover, CustomPopover } from 'src/components/custom-popover';
+
+import EditModal from './units&measurements-edit-form';
 // ----------------------------------------------------------------------
 
 type Props = CardProps & {
@@ -61,12 +65,23 @@ type RowItemProps = {
 
 function RowItem({ row, index }: RowItemProps) {
   const popover = usePopover();
+  const [editOpen, setEditOpen] = useState(false);
+  const [editName, setEditName] = useState(row.name);
 
-  const handleEdit = () => {
+  const handleEditOpen = () => {
+    setEditOpen(true);
     popover.onClose();
-    console.info('Edit', row._id);
   };
 
+  const handleEditClose = () => {
+    setEditOpen(false);
+  };
+
+  const handleEditSave = (newName: any) => {
+    console.info('Save', row._id, newName);
+    editMeasurements(row._id, { name: newName });
+    setEditOpen(false);
+  };
   const handleDelete = () => {
     popover.onClose();
     deleteMeasurements(row._id);
@@ -91,17 +106,25 @@ function RowItem({ row, index }: RowItemProps) {
         slotProps={{ arrow: { placement: 'right-top' } }}
       >
         <MenuList>
-          <MenuItem onClick={handleEdit}>
+          <MenuItem onClick={handleEditOpen}>
             <Iconify icon="solar:pen-bold" />
-            Edit
+            Таҳрирлаш
           </MenuItem>
 
           <MenuItem onClick={handleDelete} sx={{ color: 'error.main' }}>
             <Iconify icon="solar:trash-bin-trash-bold" />
-            Delete
+            Ўчириш
           </MenuItem>
         </MenuList>
       </CustomPopover>
+
+      <EditModal
+        open={editOpen}
+        name={editName}
+        onClose={handleEditClose}
+        onSave={handleEditSave}
+        onChange={(e) => setEditName(e.target.value)}
+      />
     </>
   );
 }

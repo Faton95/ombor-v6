@@ -33,7 +33,7 @@ export default function CustomerCreateForm({ open, onClose }: Props) {
   const defaultValues = {
     name: '',
     phone: '',
-    organization: ''
+    organization: '',
   };
 
   const methods = useForm<NewUserSchema>({
@@ -52,7 +52,7 @@ export default function CustomerCreateForm({ open, onClose }: Props) {
     try {
       await createCustomer(data);
       reset();
-      toast.success('Mijoz muvaffaqiyatli yaratildi!');
+      toast.success('Мижоз муваффақиятли яратилди!');
       onClose();
     } catch (error) {
       console.error(error);
@@ -69,19 +69,19 @@ export default function CustomerCreateForm({ open, onClose }: Props) {
       }}
     >
       <Form methods={methods} onSubmit={onSubmit}>
-        <DialogTitle>Yangi mijoz yaratish</DialogTitle>
+        <DialogTitle>Янги мижоз яратиш</DialogTitle>
 
         <DialogContent>
           <Box rowGap={3} columnGap={2} display="grid" sx={{ pt: 1 }}>
-            <Field.Text name="name" label="Yetkazib beruvchi" />
-            <Field.Text name="phone" label="Telefon raqami" />
-            <Field.Text name="organization" label="Tashkilot nomi" />
+            <Field.Text name="name" label="Етказиб берувчи" />
+            <Field.Text name="phone" label="Телефон рақами" />
+            <Field.Text name="organization" label="Ташкилот номи" />
           </Box>
         </DialogContent>
 
         <DialogActions>
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Yaratish
+            Яратиш
           </LoadingButton>
           <Button
             variant="outlined"
@@ -90,7 +90,7 @@ export default function CustomerCreateForm({ open, onClose }: Props) {
               reset();
             }}
           >
-            Bekor qilish
+            Бекор қилиш
           </Button>
         </DialogActions>
       </Form>

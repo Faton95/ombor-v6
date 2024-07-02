@@ -21,20 +21,20 @@ export function InvoiceNewEditStatusDate() {
       <Field.Text
         disabled
         name="invoiceNumber"
-        label="Nakladnoy raqami"
+        label="Накладной рақами"
         value={values.invoiceNumber}
       />
 
-      <Field.Select fullWidth name="status" label="Sababi" InputLabelProps={{ shrink: true }}>
-        {["Beg'araz", "G'arazli"].map((option) => (
+      <Field.Select fullWidth name="status" label="Сабаби" InputLabelProps={{ shrink: true }}>
+        {['Беғараз', 'Ғаразли'].map((option) => (
           <MenuItem key={option} value={option} sx={{ textTransform: 'capitalize' }}>
             {option}
           </MenuItem>
         ))}
       </Field.Select>
 
-      <Field.DatePicker name="createDate" label="Chislo-dan" />
-      <Field.DatePicker name="dueDate" label="Chislo-gacha" />
+      <Field.DatePicker name="createDate" label="Кун-дан" />
+      <Field.DatePicker name="dueDate" label="Кун-гача" />
     </Stack>
   );
 }

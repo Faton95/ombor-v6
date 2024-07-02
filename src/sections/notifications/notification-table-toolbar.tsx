@@ -45,22 +45,15 @@ export function ExitTableToolbar({ filters, dateError, onResetPage }: Props) {
         direction={{ xs: 'column', md: 'row' }}
         sx={{ p: 2.5, pr: { xs: 2.5, md: 1 } }}
       >
-        <Field.Select name="status" label="Омбор">
-          {['Ombor 1', 'Ombor 2', 'Ombor 3'].map((option) => (
+        <Field.Select name="status" label="Бўлим">
+          {['Омбор 1', 'Омбор 2', 'Омбор 3'].map((option) => (
             <MenuItem key={option} value={option} sx={{ textTransform: 'capitalize' }}>
               {option}
             </MenuItem>
           ))}
         </Field.Select>
-        <Field.Select name="status" label="Категория">
-          {['Kategoriya 1', 'Kategoriya 2', 'Kategoriya 3'].map((option) => (
-            <MenuItem key={option} value={option} sx={{ textTransform: 'capitalize' }}>
-              {option}
-            </MenuItem>
-          ))}
-        </Field.Select>
-        <Field.Select name="status" label="Маҳсулот">
-          {['Koptok', 'Moshina', 'Telefon', 'Kitob'].map((option) => (
+        <Field.Select name="status" label="Исм">
+          {['Азизов Азиз', 'Луcиан Обриен', 'Жайдон Франкие'].map((option) => (
             <MenuItem key={option} value={option} sx={{ textTransform: 'capitalize' }}>
               {option}
             </MenuItem>

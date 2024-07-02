@@ -16,12 +16,12 @@ type Props = {
 
 export function InvoiceDetailsView({ invoice }: Props) {
   return (
-    <DashboardContent maxWidth='xl'>
+    <DashboardContent maxWidth="xl">
       <CustomBreadcrumbs
         heading={invoice?.invoiceNumber}
         links={[
-          { name: 'Dashboard', href: paths.dashboard.root },
-          { name: 'Invoice', href: paths.dashboard.invoice.root },
+          { name: 'Дашбоард', href: paths.dashboard.root },
+          { name: 'Ҳисоб', href: paths.dashboard.invoice.root },
           { name: invoice?.invoiceNumber },
         ]}
         sx={{ mb: { xs: 3, md: 5 } }}

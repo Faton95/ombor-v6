@@ -104,7 +104,7 @@ export function InvoiceNewEditDetails() {
       sx={{ mt: 3, textAlign: 'right', typography: 'body2' }}
     >
       <Stack direction="row" sx={{ typography: 'subtitle1' }}>
-        <div>Jami</div>
+        <div>Жами</div>
         <Box sx={{ width: 160 }}>{fCurrency(totalAmount) || '-'}</Box>
       </Stack>
     </Stack>
@@ -119,21 +119,21 @@ export function InvoiceNewEditDetails() {
               <Field.Text
                 size="small"
                 name={`items[${index}].title`}
-                label="Title"
+                label="Сарлавҳа"
                 InputLabelProps={{ shrink: true }}
               />
 
               <Field.Text
                 size="small"
                 name={`items[${index}].description`}
-                label="Description"
+                label="Тавсиф"
                 InputLabelProps={{ shrink: true }}
               />
 
               <Field.Select
                 name={`items[${index}].service`}
                 size="small"
-                label="Service"
+                label="Хизмат"
                 InputLabelProps={{ shrink: true }}
                 sx={{ maxWidth: { md: 160 } }}
               >
@@ -162,7 +162,7 @@ export function InvoiceNewEditDetails() {
                 size="small"
                 type="number"
                 name={`items[${index}].quantity`}
-                label="Quantity"
+                label="Миқдори"
                 placeholder="0"
                 onChange={(event) => handleChangeQuantity(event, index)}
                 InputLabelProps={{ shrink: true }}
@@ -173,7 +173,7 @@ export function InvoiceNewEditDetails() {
                 size="small"
                 type="number"
                 name={`items[${index}].price`}
-                label="Price"
+                label="Нархи"
                 placeholder="0.00"
                 onChange={(event) => handleChangePrice(event, index)}
                 InputProps={{
@@ -191,7 +191,7 @@ export function InvoiceNewEditDetails() {
                 size="small"
                 type="number"
                 name={`items[${index}].total`}
-                label="Total"
+                label="Жами"
                 placeholder="0.00"
                 value={values.items[index].total === 0 ? '' : values.items[index].total.toFixed(2)}
                 onChange={(event) => handleChangePrice(event, index)}
@@ -235,7 +235,7 @@ export function InvoiceNewEditDetails() {
           onClick={handleAdd}
           sx={{ flexShrink: 0 }}
         >
-          Qo&apos;shish
+          Қўшиш
         </Button>
       </Stack>
 

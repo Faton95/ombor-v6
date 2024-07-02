@@ -24,17 +24,17 @@ export default function SupplierView() {
     <Container maxWidth={false}>
       <CustomBreadcrumbs
         sx={{ mb: 3 }}
-        heading="Yetkazib berish"
+        heading="Етказиб бериш"
         action={
           <Button
             variant="contained"
             onClick={quickEdit.onTrue}
             startIcon={<Iconify icon="mdi:user-add" />}
           >
-            Yangi yaratish
+            Янги яратиш
           </Button>
         }
-        links={[{ name: 'Yordamchilar', href: '#' }, { name: 'Yetkazib berish' }]}
+        links={[{ name: 'Ёрдамчилар', href: '#' }, { name: 'Етказиб бериш' }]}
       />
 
       <Card>
@@ -45,9 +45,9 @@ export default function SupplierView() {
               tableData={supplierResults}
               headLabel={[
                 { id: 'N', label: '№', width: 10 },
-                { id: 'name', label: 'Yetkazib beruvchi nomi', width: 470 },
-                { id: 'phone', label: 'Manzil', width: 470 },
-                { id: 'address', label: 'Telefon raqami', width: 470 },
+                { id: 'name', label: 'Етказиб берувчи номи', width: 470 },
+                { id: 'phone', label: 'Манзил', width: 470 },
+                { id: 'address', label: 'Телефон рақами', width: 470 },
                 { id: '', width: 10 },
               ]}
             />

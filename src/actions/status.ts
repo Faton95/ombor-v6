@@ -39,3 +39,10 @@ export async function deleteStatus(id: string) {
   mutate('/status');
   return res.data;
 }
+
+export async function editStatus(id: string, name: { name: string }) {
+  const res = await axios.put(`/status/${id}`, name);
+
+  mutate('/status');
+  return res.data;
+}
